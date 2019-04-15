@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'dashboard#index'
   resources :subjects
   resources :tutor_subjects
   resources :users
