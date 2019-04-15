@@ -1,3 +1,3 @@
 class StudentTutor < ApplicationRecord
-    has_one :review
+    has_one :review 
 end

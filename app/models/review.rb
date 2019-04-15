@@ -1,3 +1,3 @@
 class Review < ApplicationRecord
-    belongs_to :student_tutor
+    belongs_to :student_tutor 
 end
