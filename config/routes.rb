@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'dashboard#index'
+  resources :subjects
+  resources :tutor_subjects
   resources :users
+  resources :student_tutor
+  resources :review
+
   get '/users/:id/subjects', to: 'users#subjects'
 end

@@ -12,9 +12,26 @@
 
 ActiveRecord::Schema.define(version: 2019_04_15_234714) do
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "student_tutor_id"
+    t.integer "rating"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_tutors", force: :cascade do |t|
+    t.integer "tutor_subject_id"
+    t.integer "student_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.string "status"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +50,13 @@ ActiveRecord::Schema.define(version: 2019_04_15_234714) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "tutor_subjects", force: :cascade do |t|
+    t.integer "tutor_id"
+    t.integer "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
