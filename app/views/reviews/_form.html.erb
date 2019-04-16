@@ -1,0 +1,12 @@
+<h1> Create a New Review For Tutor </h1>
+
+<%= form_for @review do |f| %>
+    <%= f.label :review.student_tutor_id] %>
+    <%= f.text_field :review.student_tutor_id] %>
+    <%= f.label :review.rating %>
+    <%= f.number_field :review.rating %>
+    <%= f.label :review.comment %>
+    <%= f.text_area :review.comment %>
+    <%= f.collection_select :tutor_id, Tutor.all, :id, :name %>
+    <%= f.submit "Submit Review"%>
+<% end %>

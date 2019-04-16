@@ -1,0 +1,9 @@
+<h1> List of Tutors and Subjects </h1>
+
+<ul>
+    <% @reviews.each do |review| %>
+        <li><%= link_to review.student_tutor_id, review_path(review) %></li>
+    <% end %>
+</ul>
+
+ 
