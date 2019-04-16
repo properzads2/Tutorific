@@ -1,0 +1,53 @@
+<%=@user.first_name%>
+<%=@user.last_name%>
+<%=@user.role%>
+<%=@user.email%>
+
+
+<% if @user.role == "Tutor" %>
+
+<p> TUTORIAL PAGE
+</p>
+
+ Welcome <%=@user.first_name + @user.last_name%>
+
+  please click on the link below for what you would like to do
+ <p>
+ 1> --  <%= link_to "View or Add Subject", user_path %>
+</p>
+<p>
+  2> --  <%= link_to "Give Review of Student", user_path %>
+</p>
+<p>
+  3> <%= link_to "approve or deny a request", user_path %>
+</p>
+
+ <p>
+
+  4>   <%= link_to "View my existing appointments", user_path %>
+ </p>
+
+  <%end%>
+
+
+  <% if @user.role == "Student" %>
+  <p> STUDENT PAGE
+  </p>
+<p>
+
+   Welcome <%=@user.first_name+@user.last_name%>
+</p>
+<p>
+    please click on the link below for what you would like to do
+</p>
+<p>
+  1> --  <%= link_to "View tutors", user_path %>
+</p>
+<p>
+  1> --  <%= link_to "Give Review for Tutors", user_path %>
+</p>
+
+
+    <%end%>
+
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
