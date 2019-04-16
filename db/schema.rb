@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_04_15_194347) do
+=======
 ActiveRecord::Schema.define(version: 2019_04_15_202307) do
+>>>>>>> master
 
   create_table "reviews", force: :cascade do |t|
     t.integer "student_tutor_id"
@@ -28,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_04_15_202307) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.string "status"
@@ -42,4 +48,5 @@ ActiveRecord::Schema.define(version: 2019_04_15_202307) do
     t.datetime "updated_at", null: false
   end
 
+>>>>>>> master
 end
