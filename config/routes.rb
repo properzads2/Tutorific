@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get '/users/subjects/:id', to: 'users#subjects'
   post '/users/subjects/:id', to: 'users#subjectupdate'
+  post '/student_tutor/:id', to: 'student_tutor#post'
 end
