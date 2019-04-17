@@ -13,7 +13,9 @@
 
   please click on the link below for what you would like to do
  <p>
- 1> --  <%= link_to "View or Add Subject", user_path %>
+ 1> -- <%=link_to "View or Add Subject", controller: "users", action: "subjects", id: @user%>
+
+
 </p>
 <p>
   2> --  <%= link_to "Give Review of Student", user_path %>

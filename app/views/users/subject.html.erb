@@ -7,10 +7,23 @@
 <ul>
  <p>
 
-  <li><%=subject.to_s.upcase%> </li>
+  <li><%=Subject.find(subject).name%> </li>
+
 </p>
 
 </ul>
   <%end%>
 
-  
+<p>
+  Please select Subject which you want to add
+
+  <%=form_for@test do |f| %>
+
+
+<%=collection_select(:subject_id, :subject_id, @subjectnames, :id, :name, prompt: true)%>
+<%= f.button :submit %>
+
+<%end%>
+
+  </p>
+   <%= link_to "Go to Tutor page", user_path %>

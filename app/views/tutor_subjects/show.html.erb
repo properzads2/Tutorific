@@ -1,14 +1,40 @@
 <p id="notice"><%= notice %></p>
-
+ <p> this is how </p>
 <p>
   <strong>Tutor:</strong>
-  <%= @tutor_subject.tutor_id %>
+
 </p>
 
 <p>
   <strong>Subject:</strong>
-  <%= @tutor_subject.subject_id %>
+
 </p>
 
-<%= link_to 'Edit', edit_tutor_subject_path(@tutor_subject) %> |
-<%= link_to 'Back', tutor_subjects_path %>
+
+
+  <p>
+    Your Existing Subjects are
+    </p>
+ <%@existing.each do |subject|%>
+
+<ul>
+ <p>
+
+  <li><%=Subject.find(subject).name%> </li>
+
+</p>
+
+</ul>
+  <%end%>
+
+<p>
+  Please select Subject which you want to add
+
+  <%=form_for@test do |f| %>
+
+<%=collection_select(:subject_id, :subject_id, Subject.all, :id, :name, prompt: true)%>
+<%= f.button :submit %>
+
+<%end%>
+  </p>
+   <%= link_to "Go to Tutor page", user_path %>
