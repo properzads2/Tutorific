@@ -29,19 +29,20 @@ art = Subject.create(name: "Art")
 discrete_math = Subject.create(name: "Discrete Math")
 biology = Subject.create(name: "Biology")
 
-# 10.times do
-#     Users.create(
-#         email: Faker::Internet.email,
-#         first_name: Faker::Name.first_name,
-#         last_name: Faker.Name.last_name,
-#         category:
+ 10.times do
+     Users.create(
+         email: Faker::Internet.email,
+         first_name: Faker::Name.first_name,
+         last_name: Faker::Name.last_name,
+         role:
+         profile: Faker::Lorem.sentences,
 
 #     )
 
-# Tutors
+# Users (Tutors)
 jill = User.create(first_name: "Jill", last_name: "Valentine", bio: "I love to teach discrete math. It's one of the most amazing subjects")
 tom = User.create(first_name: "Tom", last_name: "Cruise", bio: "I was formely one of the greatest actors, but I found my passion in Chemistry")
-jack = User.create(first_name: "Jack", last_name: "Ryan", bio: "My name is Jack Ryan and I love teach history.")
+malik = User.create(first_name: "Malik", last_name: "Siddiqi", bio: "My name is Malik Siddiqi and I love teach history.")
 james = User.create(first_name: "James", last_name: "Bond", bio: "The worlds best spy, now teaching and mastering the art of artificial intelligence")
 kim = User.create(first_name: "Kim", last_name: "Bradford", bio: "I love teaching biology, since I have a PhD")
 john = User.create(first_name: "John", last_name: "Cena", bio: "You can't see me, but I teach physics")
