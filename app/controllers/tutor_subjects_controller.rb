@@ -10,8 +10,17 @@ class TutorSubjectsController < ApplicationController
   # GET /tutor_subjects/1
   # GET /tutor_subjects/1.json
   def show
-  end
+    @user = User.find(params[:id])
 
+     @existing = [1,2]
+     @test  = "this is test"
+     TutorSubject.all.each do |subject|
+
+      if subject.tutor_id == @user.id
+        @existing << subject.subject_id
+   end
+ end
+end
   # GET /tutor_subjects/new
   def new
     @tutor_subject = TutorSubject.new
@@ -19,6 +28,22 @@ class TutorSubjectsController < ApplicationController
 
   # GET /tutor_subjects/1/edit
   def edit
+  end
+
+  def subjectupdate
+    @userid =  params[:id]
+    @subjectid = params[:subject_id].values
+    @subjectid.join
+    @subject = @subjectid[0].to_i
+    new = TutorSubject.new
+     new.tutor_id = @userid
+     new.subject_id = @subject
+     new.save
+     @existing = [1]
+     byebug
+  #render "users/(@userid)/subjects"
+   redirect_to "tutor_subjects/1"
+
   end
 
   # POST /tutor_subjects

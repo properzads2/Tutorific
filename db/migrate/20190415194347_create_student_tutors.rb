@@ -3,7 +3,7 @@ class CreateStudentTutors < ActiveRecord::Migration[5.2]
     create_table :student_tutors do |t|
       t.integer :tutor_subject_id
       t.integer :student_id
-      t.string :status 
+      t.string :status
 
       t.timestamps
     end

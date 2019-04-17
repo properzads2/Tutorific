@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
   user_path(@user.id) #your path
   end
 
-  
+
 
 
 
 
   protected
   def configure_permitted_parameters
-    attributes = [:role,:first_name,:last_name,:profile]
+    attributes = [:role,:first_name,:last_name,:profile,:subject_id,:tutor_id]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
   #  params.require(:user).permit(:role,:first_name,:last_name,:profile)
   end
