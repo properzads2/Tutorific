@@ -21,7 +21,7 @@
   2> --  <%= link_to "Give Review of Student", user_path %>
 </p>
 <p>
-  3> <%= link_to "approve or deny a request", user_path %>
+  3> <%= link_to "approve or deny a request", controller: "student_tutor",action: "tutorrequest", id: @user %>
 </p>
 
  <p>

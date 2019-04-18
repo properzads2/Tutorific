@@ -1,0 +1,50 @@
+
+<%=@userid%>
+
+<p>
+SUBJECT SELECTION MENU
+</p>
+<%if @user == nil%>
+<p> <%Subject.all.each do |subject|%>
+
+<%=subject.name%>
+
+<%end%>
+</p>
+
+<%=form_for@test do |f| %>
+
+
+<%=collection_select(:subject_id, :subject_id, Subject.all, :id, :name, prompt: false)%>
+<%= f.button :submit %>
+
+<%end%>
+
+<%end%>
+<% if @tutor == nil%>
+  
+
+
+<%else%>
+<p>
+<%=@sid%>
+<p> Your Subject name <%=Subject.find(@sid).name%>
+</p>
+<p>
+</p>
+<p>
+</p>
+<%=form_for@test,:url => {:action => "create", :id => @studentid}  do |f| %>
+<p> PLEASE SELECT TUTOR </p> 
+
+<%=collection_select(:tutor_id,:tutor_id, @user, :id, :fullname, prompt: true)%>
+<%= f.button :submit %>
+
+<%end%>
+<%=link_to "Rechoose the subject", student_tutor_path(params[:id]) %>
+<%end%>
+
+<%if @message != nil%>
+<p> YOU ALREADY HAVE THIS TUTOR </p>
+<%end%>
+
