@@ -4,6 +4,56 @@ class StudentTutorController < ApplicationController
     # @userid = self
     
     end
+    def select
+        
+        par = params[:select].values
+        id = params[:id]
+        
+        x = StudentTutor.find_by(Tutor_subject_id: params[:id])
+
+            if par[0] == "1"
+
+                x.update(status: "a")
+            else  
+        
+                x.update(status: "d")
+            end     
+        #byebug 
+        tutor = x.tutor_subject_id
+        y = TutorSubject.find(tutor).tutor_id
+
+            #render :tutorrequest
+            redirect_to action: "tutorrequest", id: y 
+        end  
+    
+        def appointment
+            @store = []
+            id = params[:id].to_i
+            @id = id
+            @tutorial =  TutorSubject.where(tutor_id: id)
+            @studenttutor = StudentTutor.where(status: "a")    
+            @studenttutor.each do |student|
+            if @tutorial.where(id: student.tutor_subject_id) != nil 
+              
+             @store << student.tutor_subject_id
+            end
+         end  
+            @student 
+            @test =(params[:id])
+            @coll = ["approve","deny"]
+            @person = ["a"]
+            
+          
+        
+        end     
+    
+    def student
+
+        byebug 
+            render :index
+       end  
+
+
     def show
     @userid = params[:id]
     @test = params[:id]
@@ -39,15 +89,23 @@ class StudentTutorController < ApplicationController
    def tutorrequest
     @store = []
     id = params[:id].to_i
+    @id = id
     @tutorial =  TutorSubject.where(tutor_id: id)
     @studenttutor = StudentTutor.where(status: "p")    
     @studenttutor.each do |student|
-    if @tutorial.find_by(id: student.tutor_subject_id) != nil 
+   if @tutorial.find_by(id: student.tutor_subject_id) != nil 
       
      @store << student.tutor_subject_id
-    end
-end  
-    byebug
+    end 
+     end
+    @student 
+    @test =(params[:id])
+    @coll = ["approve","deny"]
+    @person = ["a"]
+    #byebug      
+
+ 
+    
     render :tutorrequest
 
 
@@ -80,7 +138,6 @@ end
     def user_params
         params.require(:student_tutor).permit(:tutor_id,:subject_id)
     end
-
-
+   
     end 
     

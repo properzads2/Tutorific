@@ -4,6 +4,10 @@
 <%=@user.email%>
 
 
+
+
+<h1 class="rollin">Example</h1>
+
 <% if @user.role == "Tutor" %>
 
 <p> TUTORIAL PAGE
@@ -26,7 +30,7 @@
 
  <p>
 
-  4>   <%= link_to "View my existing appointments", user_path %>
+  4>   <%= link_to "View my existing appointments", controller: "student_tutor",action: "appointment", id: @user %>
  </p>
 
   <%end%>

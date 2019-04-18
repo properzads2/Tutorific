@@ -1,0 +1,16 @@
+<p> this is appointment page </p>
+
+
+<%@store.each do |tutor|%>
+  
+
+
+
+<%x = TutorSubject.find(tutor)%> </p>
+<p> Tutor name -> <%=User.find(x.tutor_id).fullname.upcase%> </p>
+<p> Subject name - > <%=Subject.find(x.subject_id).name.upcase%> </p>
+<% @student = StudentTutor.find_by(tutor_subject_id: x.id).student_id%>
+<p> Student name - ><%=User.find(@student).fullname.upcase%> </p>
+<%end%>
+
+<%=link_to "tutor page",user_path(params[:id])%>
