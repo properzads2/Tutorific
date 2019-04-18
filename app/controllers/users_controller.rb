@@ -56,6 +56,8 @@ class UsersController < ApplicationController
    #redirect_to "users/subjects/#{@user.id}"
    render :subject
   end
+    
+
 
     def subjectupdate
       @userid =  params[:id]

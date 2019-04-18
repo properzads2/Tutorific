@@ -1,0 +1,33 @@
+<p> this is html </p>
+
+<p> YOUR REQUESTS  </p>
+
+ 
+
+<%@store.take(1).each do |tutor|%>
+  
+
+
+
+<%x = TutorSubject.find(tutor)%> </p>
+<p> Tutor name -> <%=User.find(x.tutor_id).fullname.upcase%> </p>
+<p> Subject name - > <%=Subject.find(x.subject_id).name.upcase%> </p>
+<% @student = StudentTutor.find_by(tutor_subject_id: x.id).student_id%>
+<p> Student name - ><%=User.find(@student).fullname.upcase%> </p>
+
+
+<%= form_for :select, :as => :user, :url => {:action => "select",:id => tutor} do |f| %>
+
+ 
+  <%= f.select :select, [['Approve', 1], ['Deny', 2]]%>
+  <%= f.submit %>
+ 
+
+<%end%>
+    
+
+<p> 
+</p>
+<%end%>
+
+<%=link_to "tutor page",user_path(params[:id])%>

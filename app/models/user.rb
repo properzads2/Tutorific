@@ -7,4 +7,15 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
 
         has_many :subjects
-end
+
+
+        
+      
+        def fullname
+          "#{first_name} #{last_name}"
+        end
+
+
+
+
+      end
